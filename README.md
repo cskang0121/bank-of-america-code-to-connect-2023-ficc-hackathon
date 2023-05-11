@@ -42,5 +42,8 @@
 4. Go to ```http://127.0.0.1:5173/``` to ensure the backend application is started successfully.
 5. You should see the phrase "Hello World!".
 
-## Guide To Use Our Application
-1. ...
+## User Manuals For Our Applications
+1. After running both frontend and backend applications (and after clicking "Next->" on the first the page), user should be able to see the following page:
+
+![Image 11-5-23 at 4 31 PM](https://github.com/roystonlek/codetoconnectf7/assets/77608416/428f6647-6d4c-40d3-9973-341d31862e67)
+
