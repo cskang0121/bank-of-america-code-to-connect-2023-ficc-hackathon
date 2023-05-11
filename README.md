@@ -45,5 +45,7 @@
 ## User Manuals For Our Applications
 1. After running both frontend and backend applications (and after clicking "Next->" on the first the page), user should be able to see the following page:
 
-![Image 11-5-23 at 4 31 PM](https://github.com/roystonlek/codetoconnectf7/assets/77608416/428f6647-6d4c-40d3-9973-341d31862e67)
+<img width="1680" alt="Screenshot 2023-05-11 at 4 55 25 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/77608416/039c0cec-0920-4a06-a219-313c0db5b3b4">
+
+
 
