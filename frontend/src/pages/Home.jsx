@@ -15,10 +15,10 @@ const Home = () => {
 
   useEffect(() => {
     let interval = setInterval( async () => {
-      // const response = await axios.get(`${baseUrl}/event`)
+      const response = await axios.get(`${baseUrl}/event`)
       // console.log(response.data)
 
-    }, 2000);
+    }, 3000);
     return () => {
       clearInterval(interval);
     };
