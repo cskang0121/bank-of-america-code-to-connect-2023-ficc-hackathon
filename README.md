@@ -43,9 +43,10 @@
 5. You should see the phrase "Hello World!".
 
 ## User Manuals For Our Applications
-1. After running both frontend and backend applications (and after clicking "Next->" on the first page), user should be able to see the following:
+1. After running both frontend and backend applications (and after clicking "Next->" on the first page), user should be able to see the following: 
 
 <img width="1680" alt="Screenshot 2023-05-11 at 4 55 25 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/77608416/039c0cec-0920-4a06-a219-313c0db5b3b4">
 
-
-
+2. The admin user is able to input the Currency and Tenor values of choice via text input in order to retrieve the corresponding data. (Note: we allowed free text input as we did not have a comprehensive list of all possible inputs)
+3. From top to bottom, the graphs display the Ask - (minus) Bid, Bid, and Ask values for the admin user to observe. The graph is updated in REAL-TIME.
+4. The table fixed to the bottom of the page displays the table showing the output for the given (Currency, Tenor) key. The table is updated in REAL-TIME (scroll to the bottom!)
