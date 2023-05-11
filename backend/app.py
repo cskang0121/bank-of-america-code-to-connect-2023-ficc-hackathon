@@ -140,9 +140,9 @@ def report_generator():
                                           event_id, ccy, tenor))
         else:
             pass
-        # #writing to output.json
-        # with open("output.json", "w") as f :
-        #     json.dump(result,f)
+        #writing to output.json
+        with open("output.json", "w") as f :
+            json.dump(result,f)
     return result, 200
 
 

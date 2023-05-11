@@ -2,15 +2,12 @@ def skew(net_position, divisor_ratio, m , tenor , b ):
     return net_position / divisor_ratio * variance(m,tenor,b)
 
 def variance(m , tenor , b ): 
-    print(str(tenor) +"heiiii")
     return m * int(tenor[:-1])*30.0 + b
 
 def new_mid(fx_rate , net_position, divisor_ratio, m , tenor , b ):
-    print("skew tenor- " + str(tenor))
     return fx_rate - skew(net_position, divisor_ratio, m , tenor , b)
 
 def bid(fx_rate , net_position, divisor_ratio, m , tenor , b  , spread ):
-    print("bid tenor- " + str(tenor))
     return new_mid(fx_rate , net_position, divisor_ratio, m , tenor , b ) - (0.5 * spread / 10000 )
 
 
@@ -69,7 +66,7 @@ def output_json(bid , ask , position , fx_rate , event_id , ccy , tenor ):
             "QuoteStatus": quote_status
         }
     elif abs(bid - fx_rate) > 0.1*fx_rate or abs(ask - fx_rate) > 0.1*fx_rate:
-        quote_status = "NON_TRADABLE"
+        quote_status = "NON-TRADABLE"
         return {
             "EventId": event_id,
             "Ccy": ccy,
