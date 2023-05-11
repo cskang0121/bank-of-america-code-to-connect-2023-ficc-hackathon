@@ -2,12 +2,15 @@ def skew(net_position, divisor_ratio, m , tenor , b ):
     return net_position / divisor_ratio * variance(m,tenor,b)
 
 def variance(m , tenor , b ): 
-    return m * int(tenor[0])*30 + b
+    print(str(tenor) +"heiiii")
+    return m * int(tenor[:-1])*30.0 + b
 
 def new_mid(fx_rate , net_position, divisor_ratio, m , tenor , b ):
+    print("skew tenor- " + str(tenor))
     return fx_rate - skew(net_position, divisor_ratio, m , tenor , b)
 
 def bid(fx_rate , net_position, divisor_ratio, m , tenor , b  , spread ):
+    print("bid tenor- " + str(tenor))
     return new_mid(fx_rate , net_position, divisor_ratio, m , tenor , b ) - (0.5 * spread / 10000 )
 
 
@@ -19,6 +22,36 @@ def ask(fx_rate , net_position, divisor_ratio, m , tenor , b  , spread):
 
 # def ask(new_mid , spread):
 #     return new_mid + (0.5 * spread / 10000 )
+
+def gen_config(events ):
+    fx_rates = {}
+    m = None
+    b = None
+    div_ratio = None
+    spread = None
+    for i in events:
+        if (i["EventType"] == "ConfigEvent"):
+            m = i["m"]
+            b = i["b"]
+            div_ratio = i["DivisorRatio"]
+            spread = i["Spread"]
+        elif (i["EventType"] == "FXMidEvent"):
+            fx_rates[i["Ccy"]] = i["rate"]
+    return fx_rates , m , b , div_ratio , spread
+
+
+def position(events , ccy , tenor):
+    pos = 0 
+    found = False 
+    for i in events: 
+        if i['EventType'] == "TradeEvent" and i['Ccy'] == ccy and i['Tenor'] == tenor: 
+            found = True
+            if i['BuySell'] == "buy":
+                pos += i['Quantity']
+            elif i['BuySell'] == "sell":
+                pos -= i['Quantity']
+    return pos , found
+
 
 
 # calculations to send to output.json 
