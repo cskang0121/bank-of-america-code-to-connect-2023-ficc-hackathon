@@ -6,15 +6,19 @@ import Sidebar from './Sidebar'
 import Footer from './Footer'
 import Main from './Main'
 
+const baseUrl = 'http://127.0.0.1:5000'
+
 const Home = () => {
 
   // const [count, setCount] = useState(0)
+  
 
   useEffect(() => {
     let interval = setInterval( async () => {
-      // const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
-      // setCount((count) => count + 1)
-    }, 5000);
+      // const response = await axios.get(`${baseUrl}/event`)
+      // console.log(response.data)
+
+    }, 2000);
     return () => {
       clearInterval(interval);
     };
