@@ -17,12 +17,15 @@ CORS(app)
 
 # ----------------------variables------------------------------------
 fx_rates = {}
+history = []
+available_ccy_tenor = []
 m = None
 b = None
 div_ratio = None
 spread = None
-history={}
 event_num = 0
+
+# -------------------------------------------------------------------
 
 
 @app.route("/event")
@@ -31,27 +34,103 @@ def get_event():
     if (event_num >= len(events)):
         return "No more events " + str(event_num), 404
     else:
+        global m, b, div_ratio, spread
         ret_event = events[event_num]
         if (ret_event["EventType"] == "ConfigEvent"):
-            # global m, b, div_ratio, spread
-            # m = ret_event["m"]
-            # b = ret_event["b"]
-            # div_ratio = ret_event["DivisorRatio"]
-            # spread = ret_event["Spread"]
-            # print("ConfigEvent: " + str(m) + " " + str(b) +
-            #       " " + str(div_ratio) + " " + str(spread))
-            pass
+            global m, b, div_ratio, spread
+            m = ret_event["m"]
+            b = ret_event["b"]
+            div_ratio = ret_event["DivisorRatio"]
+            spread = ret_event["Spread"]
+            print("ConfigEvent: " + str(m) + " " + str(b) +
+                  " " + str(div_ratio) + " " + str(spread))
         elif (ret_event["EventType"] == "FXMidEvent"):
-            # global fx_rates
-            # fx_rates[ret_event["Ccy"]] = ret_event["rate"]
-            # print("FXMidEvent: " + str(fx_rates))
-            pass
+            global fx_rates
+            fx_rates[ret_event["Ccy"]] = ret_event["rate"]
         elif (ret_event["EventType"] == "TradeEvent"):
-            print("TradeEvent: " + str(ret_event))
+            # print("TradeEvent: " + str(ret_event))
+           pass
         else:
             return "Unknown event type", 404
         event_num += 1
-    return ret_event, 200
+    return events[:event_num], 200
+
+
+#  global available_ccy_tenor
+#             available_ccy_tenor.append(
+#                 (ret_event["Ccy"]+"-"+ret_event["Tenor"]))
+#             hist_new = []
+#             print("here is the trade event")
+#             for i in available_ccy_tenor:
+#                 print("for loop for the avaiolable tenor ")
+#                 ccy = i.split("-")[0]
+#                 tenor = i.split("-")[0]
+#                 event_id = event_num + 1
+
+#                 pos_value, pos_found = position(events[:event_id], ccy, tenor)
+#                 if (pos_found == False):
+#                     hist_new.append(output_json(None, None, None, None,
+#                                                 event_id, ccy, tenor))
+#                 elif (pos_found == True):
+#                     if (m == None or b == None or div_ratio == None or spread == None or ccy not in fx_rates):
+#                         hist_new.append(output_json(None, None, pos_value, None,
+#                                                     event_id, ccy, tenor))
+#                     else:
+#                         print("else tenor- " + tenor)
+#                         bid_amt = bid(fx_rates[ccy], pos_value,
+#                                       div_ratio, m, tenor, b, spread)
+#                         bid_amt = round(bid_amt, 4)
+#                         ask_amt = ask(fx_rates[ccy], pos_value,
+#                                       div_ratio, m, tenor, b, spread)
+#                         ask_amt = round(ask_amt, 4)
+#                         hist_new.append(output_json(bid_amt, ask_amt, pos_value, fx_rates[ccy],
+#                                                     event_id, ccy, tenor))
+#                 else:
+#                     # bid_amt = bid(bid , ask , pos_value , fx_rate , event_id , ccy , tenor)
+#                     pass
+#                 history.append(hist_new)
+#                 print("im here now ")
+#                 return history, 200
+
+@app.route("/history", methods=['POST'])
+def get_history():
+    #get ccy and tenor from the json body
+    global event_num
+    ccy = request.get_json()['ccy']
+    tenor = request.get_json()['tenor']
+    history_ccy_tenor = [] 
+    for i in range(event_num):
+        event_id = i +1 
+
+        pos_value, pos_found = position(events[:event_id], ccy, tenor)
+        fx_rates, m, b, div_ratio, spread = gen_config(events[:event_id])
+
+        if (pos_found == False):
+            history_ccy_tenor.append(output_json(None, None, None, None,
+                                      event_id, ccy, tenor))
+            continue
+        elif (pos_found == True):
+            if (m == None or b == None or div_ratio == None or spread == None or ccy not in fx_rates):
+                history_ccy_tenor.append(output_json(None, None, pos_value, None,
+                                          event_id, ccy, tenor))
+            else:
+                print("else tenor- " + tenor)
+                bid_amt = bid(fx_rates[ccy], pos_value,
+                              div_ratio, m, tenor, b, spread)
+                bid_amt = round(bid_amt, 4)
+                ask_amt = ask(fx_rates[ccy], pos_value,
+                              div_ratio, m, tenor, b, spread)
+                ask_amt = round(ask_amt, 4)
+                history_ccy_tenor.append(output_json(bid_amt, ask_amt, pos_value, fx_rates[ccy],
+                                          event_id, ccy, tenor))
+            continue
+        else:
+            # bid_amt = bid(bid , ask , pos_value , fx_rate , event_id , ccy , tenor)
+            pass
+    return history_ccy_tenor, 200
+
+
+    
 
 
 @app.route("/report_generator", methods=['POST'])
@@ -79,10 +158,10 @@ def report_generator():
                 print("else tenor- " + tenor)
                 bid_amt = bid(fx_rates[ccy], pos_value,
                               div_ratio, m, tenor, b, spread)
-                bid_amt = round(bid_amt,4)
+                bid_amt = round(bid_amt, 4)
                 ask_amt = ask(fx_rates[ccy], pos_value,
                               div_ratio, m, tenor, b, spread)
-                ask_amt = round(ask_amt,4)
+                ask_amt = round(ask_amt, 4)
                 result.append(output_json(bid_amt, ask_amt, pos_value, fx_rates[ccy],
                                           event_id, ccy, tenor))
             continue
