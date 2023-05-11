@@ -41,3 +41,6 @@
 3. Run the command ```python app.py``` to start the backend application on your local machine.
 4. Go to ```http://127.0.0.1:5173/``` to ensure the backend application is started successfully.
 5. You should see the phrase "Hello World!".
+
+## Guide To Use Our Application
+1. ...
