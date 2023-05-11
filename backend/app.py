@@ -86,7 +86,6 @@ def get_history():
                 history_ccy_tenor.append(output_json(None, None, pos_value, None,
                                           event_id, ccy, tenor))
             else:
-                print("else tenor- " + tenor)
                 bid_amt = bid(fx_rates[ccy], pos_value,
                               div_ratio, m, tenor, b, spread)
                 bid_amt = round(bid_amt, 4)
@@ -95,7 +94,6 @@ def get_history():
                 ask_amt = round(ask_amt, 4)
                 history_ccy_tenor.append(output_json(bid_amt, ask_amt, pos_value, fx_rates[ccy],
                                           event_id, ccy, tenor))
-            continue
         else:
             # bid_amt = bid(bid , ask , pos_value , fx_rate , event_id , ccy , tenor)
             pass

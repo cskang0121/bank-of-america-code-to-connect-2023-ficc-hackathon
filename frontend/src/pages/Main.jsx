@@ -54,6 +54,8 @@ const Main = () => {
     const [ccy, setCcy] = useState('')
     const [tenor, setTenor] = useState('')
 
+    const [intervalState, setIntervalState] = useState(0)
+
     const data = {
         // labels,
         datasets: [
@@ -91,6 +93,7 @@ const Main = () => {
     };
 
     const query = async () => {
+        clearInterval(intervalState);
         const response = await axios.post(`${baseUrl}/history`, {
             ccy: ccy,
             tenor: tenor
@@ -101,7 +104,7 @@ const Main = () => {
         let historyDataX = response.data.map((item) => item.EventId);
         let historyDataY = response.data.map((item) => item.Ask);
         let historyDataY2 = response.data.map((item) => item.Bid);
-        let historyDataY3 = response.data.map((item) => item.Ask - item.Bid);
+        // let historyDataY3 = response.data.map((item) => (item.Ask - item.Bid));
 
         let historyData = {};
         for (let i = 0; i < historyDataX.length; i++) {
@@ -121,13 +124,13 @@ const Main = () => {
 
         historyData = {};
         for (let i = 0; i < historyDataX.length; i++) {
-            historyData[historyDataX[i]] = historyDataY3[i];
+            historyData[historyDataX[i]] = historyDataY[i] - historyDataY2[i];
         }
 
         setLabel3(`${ccy} ${tenor} Ask - Bid`);
         setDataset3(Object.entries(historyData).map(([key, value]) => ({ x: key, y: value })));
 
-        let interval = setInterval(async () => {
+        setIntervalState(setInterval(async () => {
             const response = await axios.post(`${baseUrl}/history`, {
                 ccy: ccy,
                 tenor: tenor
@@ -156,15 +159,15 @@ const Main = () => {
 
             historyData = {};
             for (let i = 0; i < historyDataX.length; i++) {
-                historyData[historyDataX[i]] = historyDataY3[i];
+                historyData[historyDataX[i]] = historyDataY[i] - historyDataY2[i];
             }
 
             setLabel3(`${ccy} ${tenor} Ask - Bid`);
             setDataset3(Object.entries(historyData).map(([key, value]) => ({ x: key, y: value })));
 
-        }, 2000);
+        }, 2000));
         return () => {
-            clearInterval(interval);
+            clearInterval(intervalState);
         };
     }
 
@@ -205,7 +208,7 @@ const Main = () => {
             </div>
         </div>
         <div className="h-2/6 overflow-x-auto w-full">
-            <table className="table block overflow-y-scroll w-full">
+            <table className="table block overflow-y-scroll flex flex-col-reverse w-full">
                 {/* head */}
                 <thead>
                     <tr>
