@@ -15,6 +15,15 @@ with open('sample_events.json') as f:
 app = Flask(__name__)
 CORS(app)
 
+# ----------------------variables------------------------------------
+fx_rates = {}
+m = None
+b = None
+div_ratio = None
+spread = None
+history={}
+event_num = 0
+
 
 @app.route("/event")
 def get_event():
