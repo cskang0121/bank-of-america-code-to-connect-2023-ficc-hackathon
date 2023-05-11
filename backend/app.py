@@ -9,7 +9,9 @@ from flask import request
 from helper import bid, ask, position, output_json, gen_config
 
 # read the evenets.json file into a list of dictionaries
-with open('sample_events.json') as f:
+# with open('sample_events.json') as f:
+#     events = json.load(f)
+with open('./events.json') as f:
     events = json.load(f)
 
 app = Flask(__name__)
@@ -133,11 +135,14 @@ def report_generator():
                 ask_amt = ask(fx_rates[ccy], pos_value,
                               div_ratio, m, tenor, b, spread)
                 ask_amt = round(ask_amt, 4)
-                
+
                 result.append(output_json(bid_amt, ask_amt, pos_value, fx_rates[ccy],
                                           event_id, ccy, tenor))
         else:
             pass
+        # #writing to output.json
+        # with open("output.json", "w") as f :
+        #     json.dump(result,f)
     return result, 200
 
 
