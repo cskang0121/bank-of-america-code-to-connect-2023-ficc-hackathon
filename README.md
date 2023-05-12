@@ -29,7 +29,7 @@
 1. Open a new terminal, ```cd``` to ```codetoconnectf7/frontend``` folder.
 2. Run the command ```npm install``` to install the required packages.
 3. Run the command ```npm run dev``` to start the frontend application on your local machine.
-4. Go to ```http://127.0.0.1:5173/``` to use the application. 
+4. Go to ```http://127.0.0.1:5000/``` to use the application. 
 5. You should see the following page after the frontend application is started:
 
 <img width="1680" alt="Screenshot 2023-05-11 at 2 22 12 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/29fed116-52c4-4443-80b9-b4950402b9ec">
