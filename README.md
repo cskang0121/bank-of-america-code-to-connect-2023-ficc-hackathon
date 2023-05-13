@@ -25,7 +25,7 @@
 ## Running The Code
 
 ### Step 1 : Clone The Application
-1. Run the command ```git clone https://github.com/roystonlek/codetoconnectf7.git``` in terminal in the prefered destination on your machine.
+1. Run the command ```git clone https://github.com/roystonlek/codetoconnectf7.git``` in the terminal in the prefered destination on your machine.
 
 ### Step 2 : Run The Frontend Application
 1. Open a new terminal, ```cd``` to ```codetoconnectf7/frontend``` folder.
@@ -44,10 +44,10 @@
 5. You should see the phrase "Hello World!".
 
 ## User Manuals For Our Applications
-1. After running both frontend and backend applications (and after clicking "Next->" on the first page), user should be able to see the following: 
+1. After running both frontend and backend applications (and after clicking "Next->" on the first page), admin user should be able to see the following: 
 
 <img width="1680" alt="Screenshot 2023-05-11 at 4 55 25 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/3c9e8471-e465-45fa-ab66-166a6ba59a68">
 
-2. The admin user is able to input the Currency and Tenor values of choice via text input in order to retrieve the corresponding data. (Note: we allowed free text input as we did not have a comprehensive list of all possible inputs)
+2. The admin user is able to input the "Currency" and "Tenor" values of choice via text input in order to retrieve the corresponding data. (Note: we allowed free text input as we did not have a comprehensive list of all possible inputs)
 3. From top to bottom, the graphs display the Ask - (minus) Bid, Bid, and Ask values for the admin user to observe. The graph is updated in REAL-TIME.
-4. The table fixed to the bottom of the page displays the table showing the output for the given (Currency, Tenor) key. The table is updated in REAL-TIME (scroll to the bottom).
+4. The table fixed to the bottom of the page displays the table showing the output for the given (Currency, Tenor) key. The table is updated in REAL-TIME (scroll to the bottom to view the entire table).
