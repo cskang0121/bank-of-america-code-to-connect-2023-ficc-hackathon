@@ -36,14 +36,14 @@
 
 <img width="1680" alt="Screenshot 2023-05-11 at 2 22 12 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/a6b9077c-c1f3-4d27-bda3-33fde18a1df3">
 
-### Step 3 : Backend Application
+### Step 3 : Run The Backend Application
 1. Open a new terminal, ```cd``` to ```codetoconnectf7/backend``` folder.
 2. Run the command ```pip install -r requirements.txt``` to install the required packages. 
 3. Run the command ```python app.py``` to start the backend application on your local machine.
 4. Go to ```http://127.0.0.1:5000/``` to ensure the backend application is started successfully.
 5. You should see the phrase "Hello World!".
 
-## User Manuals For Our Applications
+## User Manual For Our Application
 1. After running both frontend and backend applications (and after clicking "Next->" on the first page), admin user should be able to see the following: 
 
 <img width="1680" alt="Screenshot 2023-05-11 at 4 55 25 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/3c9e8471-e465-45fa-ab66-166a6ba59a68">
