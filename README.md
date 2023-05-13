@@ -20,7 +20,7 @@
 
 &ensp;&ensp; README.md – Code documentation
 
-&ensp;&ensp; Other Files – Code documentation
+&ensp;&ensp; Other Files 
 
 ## Running The Code
 
