@@ -1,6 +1,6 @@
-<img width="835" alt="Screenshot 2023-05-11 at 1 37 09 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/f69d59a8-a770-450b-a06f-d46b93f9d377">
+<img width="835" alt="Screenshot 2023-05-11 at 1 37 09 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/c87dcf39-1e94-43cd-adc2-3a5d8ca6f161">
 
-# Bank Of America Code To Connect 2023
+# Bank Of America Code To Connect 2023 
 
 ## Team F7 Members
 1. SMU Computer Science Year 3 – Royston Lek Chun Keat  
@@ -9,7 +9,7 @@
 
 
 ## FICC Tech Problem Statement
-* Forward Pricing Engine
+* Forward Pricing Engine (5 hours 30 minutes)
 
 ## Repository High Level Structure
 | codetoconnectf7 – root folder
@@ -19,6 +19,8 @@
 &ensp;&ensp; | backend – Backend code implemented using Python Flask
 
 &ensp;&ensp; README.md – Code documentation
+
+&ensp;&ensp; Other Files – Code documentation
 
 ## Running The Code
 
@@ -32,8 +34,7 @@
 4. Go to ```http://127.0.0.1:5173/``` to use the application. 
 5. You should see the following page after the frontend application is started:
 
-<img width="1680" alt="Screenshot 2023-05-11 at 2 22 12 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/29fed116-52c4-4443-80b9-b4950402b9ec">
-
+<img width="1680" alt="Screenshot 2023-05-11 at 2 22 12 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/a6b9077c-c1f3-4d27-bda3-33fde18a1df3">
 
 ### Step 3 : Backend Application
 1. Open a new terminal, ```cd``` to ```codetoconnectf7/backend``` folder.
@@ -45,8 +46,8 @@
 ## User Manuals For Our Applications
 1. After running both frontend and backend applications (and after clicking "Next->" on the first page), user should be able to see the following: 
 
-<img width="1680" alt="Screenshot 2023-05-11 at 4 55 25 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/77608416/039c0cec-0920-4a06-a219-313c0db5b3b4">
+<img width="1680" alt="Screenshot 2023-05-11 at 4 55 25 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/3c9e8471-e465-45fa-ab66-166a6ba59a68">
 
 2. The admin user is able to input the Currency and Tenor values of choice via text input in order to retrieve the corresponding data. (Note: we allowed free text input as we did not have a comprehensive list of all possible inputs)
 3. From top to bottom, the graphs display the Ask - (minus) Bid, Bid, and Ask values for the admin user to observe. The graph is updated in REAL-TIME.
-4. The table fixed to the bottom of the page displays the table showing the output for the given (Currency, Tenor) key. The table is updated in REAL-TIME (scroll to the bottom!)
+4. The table fixed to the bottom of the page displays the table showing the output for the given (Currency, Tenor) key. The table is updated in REAL-TIME (scroll to the bottom).
