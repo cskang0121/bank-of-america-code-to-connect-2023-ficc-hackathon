@@ -1,26 +1,28 @@
-<img width="835" alt="Screenshot 2023-05-11 at 1 37 09 PM" src="https://github.com/roystonlek/codetoconnectf7/assets/79074359/c87dcf39-1e94-43cd-adc2-3a5d8ca6f161">
+![255976081-b6ad02f4-1fba-4b18-ac74-4fccb75e3cd6](https://github.com/cskang0121/bank-of-america-code-to-connect-2023-ficc-hackathon/assets/79074359/a54e9afa-69c1-4210-b498-792b78e77e20)
 
 # Bank Of America Code To Connect 2023 
 
 ## Team F7 Members
-1. SMU Computer Science Year 3 – Royston Lek Chun Keat  
-2. SMU Computer Science Year 3 – Kang Chin Shen         
-3. SMU Computer Science Year 3 – Shaun Ting             
-
+1. SMU Computer Science Year 3 – Kang Chin Shen        
+2. SMU Computer Science Year 3 – Royston Lek Chun Keat
+3. SMU Computer Science Year 3 – Shaun Ting                       
 
 ## FICC Tech Problem Statement
 * Forward Pricing Engine (Time Limit : 5 hours 30 minutes)
 
 ## Repository High Level Structure
-| codetoconnectf7 – root folder
 
-&ensp;&ensp; | frontend – Frontend code implemented using ReactJS
+```
+| codetoconnectf7       # Root folder
 
-&ensp;&ensp; | backend – Backend code implemented using Python Flask
+    | frontend          # Frontend code implemented using ReactJS
 
-&ensp;&ensp; README.md – Code documentation
+    | backend           # Backend code implemented using Python Flask
 
-&ensp;&ensp; Other Files 
+    README.md           # Code documentation
+
+    Other files 
+```
 
 ## Running The Code
 
@@ -51,3 +53,10 @@
 2. The admin user is able to input the "Currency" and "Tenor" values of choice via text input in order to retrieve the corresponding data. (Note: we allowed free text input as we did not have a comprehensive list of all possible inputs)
 3. From top to bottom, the graphs display the Ask - (minus) Bid, Bid, and Ask values for the admin user to observe. The graph is updated in REAL-TIME.
 4. The table fixed to the bottom of the page displays the table showing the output for the given (Currency, Tenor) key. The table is updated in REAL-TIME (scroll to the bottom to view the entire table).
+
+## Credits
+> Special thanks to **Bank Of America** for organising this amazing hackathon!
+
+## Certificate Of Achievement
+
+<img width="1228" alt="boa-certificate" src="https://github.com/cskang0121/bank-of-america-code-to-connect-2023-ficc-hackathon/assets/79074359/4570eb54-a73d-425c-901a-6a507a07623e">
